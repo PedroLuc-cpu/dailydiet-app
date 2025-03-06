@@ -2,6 +2,7 @@ import { Image, View, Text, TouchableOpacity, FlatList } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ArrowUpRight, Plus } from "lucide-react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useRouter } from "expo-router";
 
 interface MealProps {
   id: string;
@@ -125,6 +126,7 @@ const Item = ({ date, meals }: MealListProps) => (
 
 export default function Index() {
   const insets = useSafeAreaInsets();
+  const router = useRouter();
 
   return (
     <SafeAreaView
@@ -147,7 +149,10 @@ export default function Index() {
       <View>
         <View className="flex gap-2">
           <Text className="text-gray1 text-xl">Refeições</Text>
-          <TouchableOpacity className="bg-gray2 p-5 rounded-lg flex flex-row gap-2 justify-center items-center">
+          <TouchableOpacity
+            className="bg-gray2 p-5 rounded-lg flex flex-row gap-2 justify-center items-center"
+            onPress={() => router.push("/(newMeal)")}
+          >
             <Plus color={"#ffff"} size={24} />
             <Text className="text-white font-bold">Nova refeição</Text>
           </TouchableOpacity>

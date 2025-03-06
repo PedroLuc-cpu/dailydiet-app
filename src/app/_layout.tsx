@@ -7,6 +7,14 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(newMeal)/index"
+          options={{
+            title: "Nova refeição",
+            headerStyle: { backgroundColor: "#DDDEDF" },
+            headerTitleAlign: "center",
+          }}
+        />
       </Stack>
     </SafeAreaProvider>
   );
